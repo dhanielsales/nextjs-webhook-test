@@ -6,13 +6,8 @@ export default function handler(
 ) {
   const authHeader = request.headers['x-auth-integration-piperun']
 
-  console.log({
-    body: {
-      dealId: request.body.id,
-      action: 'freeze'
-    },
-    headers: { 'x-auth-integration-piperun': authHeader } 
-  })
+  console.log(JSON.stringify({ dealId: request.body.id, action: 'freeze' }))
+  console.log(JSON.stringify({ headers: { 'x-auth-integration-piperun': authHeader }  }))
 
   response.status(200).json({ message: 'ok' })
 }
